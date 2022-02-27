@@ -1,5 +1,5 @@
 # testElectron
-#此代码为学习electron时编写，实现点击加载更多及搜索高亮功能。
+此代码为学习electron时编写，实现点击加载更多及搜索高亮功能。
 Nodejs版本 >= 14
 vue add electron-builder
 
