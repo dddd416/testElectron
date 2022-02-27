@@ -53,25 +53,17 @@ app.on('activate', () => {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on("ready", async () => {
+app.on('ready', async () => {
   if (isDevelopment && !process.env.IS_TEST) {
     // Install Vue Devtools
     try {
-      // await installExtension(VUEJS_DEVTOOLS);
-      // 新增的：安装vue-devtools
-      const { session } = require("electron");
-      const path = require("path");
-      session.defaultSession.loadExtension(
-        path.resolve(__dirname, "../../devTools/chrome")  //这个是刚刚build好的插件目录
-      );
-//这个是刚开始找的方法不行，换上边的方法
-// BrowserWindow.addDevToolsExtension(path.resolve(__dirname, "../../devTools/chrome")  );
+      await installExtension(VUEJS_DEVTOOLS)
     } catch (e) {
-      console.error("Vue Devtools failed to install:", e.toString());
+      console.error('Vue Devtools failed to install:', e.toString())
     }
   }
-  createWindow();
-});
+  createWindow()
+})
 
 // Exit cleanly on request from parent process in development mode.
 if (isDevelopment) {
